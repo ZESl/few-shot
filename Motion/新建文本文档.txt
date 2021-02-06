@@ -1,0 +1,19 @@
+-------------------- matching_nets --------------------
+python -m experiments.matching_nets --dataset motion --fce False --k-test 5 --n-test 2 --q-train 2
+
+
+-------------------- proto_nets --------------------
+python -m experiments.proto_nets --dataset motion --k-train 5 --k-test 5 --n-test 1 --q-train 2
+
+
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! SOLVED !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+x,y
+
+
+35: 35条数据（train 5（way）*1（shot）+5*6）
+1: 一维
+10: feature总数为10

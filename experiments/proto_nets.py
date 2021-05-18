@@ -50,10 +50,10 @@ if __name__ == '__main__':
         drop_lr_every = 40
     elif args.dataset == 'motion':
         # todo modified
-        n_epochs = 3
+        n_epochs = 100
         dataset_class = MotionDataset
         num_input_channels = 1
-        drop_lr_every = 10
+        drop_lr_every = 20
     else:
         raise(ValueError, 'Unsupported dataset')
 

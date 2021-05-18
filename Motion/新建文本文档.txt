@@ -1,14 +1,36 @@
 -------------------- matching_nets --------------------
-python -m experiments.matching_nets --dataset motion --fce False --k-test 5 --n-test 2 --q-train 2
-
+python -m experiments.matching_nets --dataset motion --fce False --k-train 2 --k-test 2 --n-test 2 --q-train 2
 
 -------------------- proto_nets --------------------
-python -m experiments.proto_nets --dataset motion --k-train 5 --k-test 5 --n-test 1 --q-train 2
+python -m experiments.proto_nets --dataset motion --k-train 2 --k-test 2 --n-test 2 --q-train 2
+
+-------------------- maml --------------------
+# 1st order MAML
+python -m experiments.maml --dataset motion --order 1 --n 2 --k 2 --eval-batches 10 --epoch-len 20 --epochs 100
+
+# 2nd order MAML
+python -m experiments.maml --dataset motion --order 2 --n 2 --k 2 --eval-batches 10 --epoch-len 20
+
+3 in 1
+
+python -m experiments.maml --dataset motion --order 1 --n 2 --k 4 --epochs 100 --eval-batches 10 --epoch-len 20
+python -m experiments.matching_nets --dataset motion --fce False --k-train 4 --k-test 4 --n-test 2 --q-train 2
+python -m experiments.proto_nets --dataset motion --k-train 4 --k-test 4 --n-test 2 --q-train 2
+python
+
+python -m experiments.maml --dataset motion --order 2 --n 2 --k 4 --epochs 100 --eval-batches 10 --epoch-len 20
 
 
+k number of classes
+n samples per class(support)
+q samples per class(query)
 
-
-
+- n-train: Support samples per class for training tasks
+- n-test: Support samples per class for validation tasks
+- k-train: Number of classes in training tasks
+- k-test: Number of classes in validation tasks
+- q-train: Query samples per class for training tasks
+- q-test: Query samples per class for validation tasks
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! SOLVED !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 x,y

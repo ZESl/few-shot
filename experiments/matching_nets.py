@@ -54,10 +54,10 @@ if __name__ == '__main__':
         lstm_input_size = 1600
     elif args.dataset == 'motion':
         # todo modified
-        n_epochs = 3
+        n_epochs = 100
         dataset_class = MotionDataset
         num_input_channels = 1
-        lstm_input_size = 3
+        lstm_input_size = 14
     else:
         raise(ValueError, 'Unsupported dataset')
 
@@ -99,9 +99,8 @@ if __name__ == '__main__':
     # Training #
     ############
     print(f'Training Matching Network on {args.dataset}...')
-    optimiser = Adam(model.parameters(), lr=1e-3)
+    optimiser = Adam(model.parameters(), lr=0.001)
     loss_fn = torch.nn.NLLLoss().cuda()
-
 
     callbacks = [
         EvaluateFewShot(
